@@ -43,16 +43,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash) {
             StartCoroutine(Dash());
+            ScreenShakeController.Instance.ShakeCamera(3f, .2f);
         }
 
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         
-        // normalize so diagonal movement speed will match horizonal and vertical movement speed
         // moveDirection = new Vector2(moveX, moveY).normalized;
         moveDirection = (mousePos - transform.position).normalized;
         // moveDirection = (mousePosition - (Vector2)transform.position).normalized;
-        // rb.velocity = moveDirection * moveSpeed;
     }
 
     void Move() {
