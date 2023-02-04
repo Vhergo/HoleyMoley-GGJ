@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0394b733d95a8ca48be3b323e78f6eba
+guid: 560692a4d8cbecf42a6570e5ee5d7d6c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,18 +36,18 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 24
+  spritePixelsToUnits: 128
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,7 +138,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MoleSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 7
+        width: 195
+        height: 505
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc521bc45275bac40bbf8bbbd0f2c7d9
+      internalID: 1321219879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 49
+        width: 195
+        height: 461
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b02e0ce93f95a140b867d40fbcca78d
+      internalID: 1129783123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 63
+        width: 238
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e8270dc42e6fb488b2296d7d8e9173
+      internalID: 1694438973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1682
+        y: 8
+        width: 216
+        height: 503
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dab5778dc11ee94bbb35243cca86047
+      internalID: -1202847402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 2191
+        y: 49
+        width: 198
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f2788efe4717c4db221205c5d01a15
+      internalID: -366066702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MoleSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 2702
+        y: 0
+        width: 226
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2695c4d3fd98f418b129be38936bf7
+      internalID: -869373408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -149,7 +275,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MoleSpriteSheet_4: -366066702
+      MoleSpriteSheet_3: -1202847402
+      MoleSpriteSheet_1: 1129783123
+      MoleSpriteSheet_0: 1321219879
+      MoleSpriteSheet_2: 1694438973
+      MoleSpriteSheet_5: -869373408
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

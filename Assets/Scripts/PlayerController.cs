@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
         
         // normalize so diagonal movement speed will match horizonal and vertical movement speed
         // moveDirection = new Vector2(moveX, moveY).normalized;
-        // moveDirection = (mousePos - transform.position).normalized;
-        moveDirection = (mousePosition - (Vector2)transform.position).normalized;
+        moveDirection = (mousePos - transform.position).normalized;
+        // moveDirection = (mousePosition - (Vector2)transform.position).normalized;
         // rb.velocity = moveDirection * moveSpeed;
     }
 
