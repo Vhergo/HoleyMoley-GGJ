@@ -1206,7 +1206,6 @@ GameObject:
   - component: {fileID: 799998917}
   - component: {fileID: 799998918}
   - component: {fileID: 799998919}
-  - component: {fileID: 799998920}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1265,7 +1264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 799998914}
   anim: {fileID: 1141529351}
-  moveSpeed: 7
+  moveSpeed: 2
+  maxSpeed: 5.5
+  speedIncrement: 0.1
   rotationSpeed: 10
   canDash: 1
   isDashing: 0
@@ -1387,58 +1388,6 @@ MonoBehaviour:
   tr: {fileID: 799998918}
   emittingDelay: 0.1
   loopDelay: 0.05
---- !u!212 &799998920
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799998913}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.5249267, y: 3.9453125}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!58 &799998921
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3726,9 +3675,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2073593157}
   rootsSpeed: 1.5
-  rootsDelay: 0
-  playerPos: {fileID: 799998916}
-  canMove: 0
+  maxRootsSpeed: 5
+  speedIncrement: 0.1
 --- !u!50 &2073593157
 Rigidbody2D:
   serializedVersion: 4

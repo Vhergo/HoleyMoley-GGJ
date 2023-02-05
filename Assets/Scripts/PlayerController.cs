@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] private float speedIncrement;
     private Vector2 moveDirection;
 
     [SerializeField] private float rotationSpeed;
@@ -17,12 +19,14 @@ public class PlayerController : MonoBehaviour
     private Vector2 mousePosition;
 
     [Header("Dash")]
+    [SerializeField] private TrailRenderer tr;
     [SerializeField] private bool canDash = true;
     [SerializeField] private bool isDashing = false;
-    [SerializeField] private float dashForce = 5f;
+    [SerializeField] private float dashForce = 3f;
     [SerializeField] private float dashTime = 0.5f;
     [SerializeField] private float dashCooldown = 2f;
-    [SerializeField] private TrailRenderer tr;
+    
+    [SerializeField] private float dashCharge; // max 3? more dashes == further dash
 
     // [Header("Misc")]
 
@@ -53,19 +57,23 @@ public class PlayerController : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         
         // moveDirection = new Vector2(moveX, moveY).normalized;
-        moveDirection = (mousePos - transform.position).normalized;
-        // moveDirection = (mousePosition - (Vector2)transform.position).normalized;
+        // moveDirection = (mousePos - transform.position).normalized;
+        moveDirection = (mousePosition - (Vector2)transform.position).normalized;
     }
 
     void Move() {
         if (isDashing) {
-            // rb.velocity = new Vector2(moveDirection.x * moveSpeed * dashForce, moveDirection.y * moveSpeed * dashForce);
             rb.velocity = moveDirection * moveSpeed * dashForce;
             return;
         }
 
-        // rb.velocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+        IncrementSpeed();
         rb.velocity = moveDirection * moveSpeed;
+    }
+
+    void IncrementSpeed() {
+        moveSpeed += speedIncrement * Time.deltaTime;
+        moveSpeed = Mathf.Min(moveSpeed, maxSpeed);
     }
 
     private IEnumerator Dash() {

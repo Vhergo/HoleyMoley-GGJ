@@ -6,11 +6,8 @@ public class Roots : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float rootsSpeed;
-    [SerializeField] private float rootsDelay;
-    [SerializeField] private Transform playerPos;
-    [SerializeField] private bool canMove = false;
-
-    private float timer;
+    [SerializeField] private float maxRootsSpeed;
+    [SerializeField] private float speedIncrement;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +18,12 @@ public class Roots : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canMove) rb.velocity = Vector2.down.normalized * rootsSpeed;
+        IncrementSpeed();
+        rb.velocity = Vector2.down.normalized * rootsSpeed;
+    }
+
+    void IncrementSpeed() {
+        rootsSpeed += speedIncrement * Time.deltaTime;
+        rootsSpeed = Mathf.Min(rootsSpeed, maxRootsSpeed);
     }
 }
