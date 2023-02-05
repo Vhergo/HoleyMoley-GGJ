@@ -5,12 +5,13 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private Transform background1, background2;
+    // [SerializeField] private 
     [SerializeField] private Transform cam;
     [SerializeField] private float size;
 
     void Start()
     {
-        
+        size = Mathf.Abs(background1.position.y - background2.position.y);
     }
 
     // Update is called once per frame
@@ -34,6 +35,8 @@ public class CameraController : MonoBehaviour
     void SwitchBackground() {
         Transform temp = background1;
         background1 = background2;
+        background1.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 1; 
         background2 = temp;
+        background2.gameObject.GetComponent<SpriteRenderer>().sortingOrder = 2; 
     }
 }

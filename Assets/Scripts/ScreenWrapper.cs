@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ScreenWrapper : MonoBehaviour
 {
-
+    [Header("General")]
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private float emittingDelay;
     [SerializeField] private float loopDelay;
+
+    [Header("Hole")]
+    [SerializeField] private GameObject moleHole;
+    [SerializeField] private float holeDuration;
 
     float leftConstraint = Screen.width;
     float rightConstraint = Screen.width;
@@ -43,11 +47,18 @@ public class ScreenWrapper : MonoBehaviour
     }
 
     void LoopLeft() {
+        SpawnHole();
         transform.position = new Vector3(rightConstraint - .10f, transform.position.y, transform.position.z);
     }
 
     void LoopRight() {
+        SpawnHole();
         transform.position = new Vector3(leftConstraint, transform.position.y, transform.position.z);
+    }
+
+    void SpawnHole() {
+        GameObject hole = Instantiate(moleHole, transform.position, Quaternion.identity);
+        Destroy(hole, holeDuration);
     }
 
     void EnableEmitting() {
