@@ -9,6 +9,12 @@ public class Roots : MonoBehaviour
     [SerializeField] private float maxRootsSpeed;
     [SerializeField] private float speedIncrement;
 
+    [SerializeField] private PlayerController player;
+    [SerializeField] private Animator anim;
+
+    [SerializeField] private GameObject tryAgain;
+    [SerializeField] private GameObject mainMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +36,20 @@ public class Roots : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Obstacle") {
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "Player") {
+            maxRootsSpeed = 0;
+            player.isDead = true;
+            player.maxSpeed = 0;
+            player.rb.velocity = Vector2.zero;
+            anim.enabled = false;
+
+            tryAgain.SetActive(true);
+            mainMenu.SetActive(true);
+            // Destroy(other.gameObject);
+            // replace with animation
+            // add lose screen
         }
     }
 }
