@@ -134,12 +134,12 @@ public class PlayerController : MonoBehaviour
                     float scaleX = transform.localScale.x * (1 + empowerSizeScale);
                     float scaleY = transform.localScale.y * (1 + empowerSizeScale);
                     gameObject.transform.localScale = new Vector3(scaleX, scaleY, 1);
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/MOLEGROW");
                 }
                 empowered = true;
                 other.gameObject.GetComponent<Enemy>().Die();
                 pointManager.enemyPointIncrement();
                 FMODUnity.RuntimeManager.PlayOneShot("event:/BUGSQUISH");
-                FMODUnity.RuntimeManager.PlayOneShot("event:/MOLEGROW");
             }else {
                 StartCoroutine(Slowed());
                 FMODUnity.RuntimeManager.PlayOneShot("event:/MOLEPAIN");

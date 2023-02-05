@@ -24,6 +24,8 @@ public class SpawnManager : MonoBehaviour
     private Vector2 spawnPos;
     private GameObject obstacleToSpawn;
     private GameObject spawnedObject;
+    private bool spawnedEnemy = false;
+    [SerializeField] private float obstacleScaleMax;
 
 
     // Start is called before the first frame update
@@ -51,6 +53,12 @@ public class SpawnManager : MonoBehaviour
         ChooseSpawnType();
         CalculateSpawnPosition();
         spawnedObject = Instantiate(obstacleToSpawn, spawnPos, Quaternion.identity);
+        if (!spawnedEnemy) {
+            float randomScalar = Random.Range(0, obstacleScaleMax);
+            float scaleX = spawnedObject.transform.localScale.x * (1 + randomScalar);
+            float scaleY = spawnedObject.transform.localScale.y * (1 + randomScalar);
+            spawnedObject.transform.localScale = new Vector3 (scaleX, scaleY, 1);
+        }
     }
 
     private bool InSpawnRange() {
@@ -66,9 +74,11 @@ public class SpawnManager : MonoBehaviour
     void ChooseSpawnType() {
         if (Random.value < enemySpawnChance) {
             obstacleToSpawn = enemyObject;
+            spawnedEnemy = true;
         }else {
             int spawnIndex = Random.Range(0, obstacles.Length);
             obstacleToSpawn = obstacles[spawnIndex];
+            spawnedEnemy = false;
         }
     }
 }
