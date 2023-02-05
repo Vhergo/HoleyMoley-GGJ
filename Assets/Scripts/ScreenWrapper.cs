@@ -48,15 +48,18 @@ public class ScreenWrapper : MonoBehaviour
 
     void LoopLeft() {
         SpawnHole();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/MOLEHOLE");
         transform.position = new Vector3(rightConstraint - .10f, transform.position.y, transform.position.z);
     }
 
     void LoopRight() {
         SpawnHole();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/MOLEHOLE");
         transform.position = new Vector3(leftConstraint, transform.position.y, transform.position.z);
     }
 
     void SpawnHole() {
+        
         GameObject hole = Instantiate(moleHole, transform.position, Quaternion.identity);
         Destroy(hole, holeDuration);
     }

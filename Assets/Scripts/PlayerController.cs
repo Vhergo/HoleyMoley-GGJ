@@ -139,8 +139,10 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.GetComponent<Enemy>().Die();
                 pointManager.enemyPointIncrement();
                 FMODUnity.RuntimeManager.PlayOneShot("event:/BUGSQUISH");
+                FMODUnity.RuntimeManager.PlayOneShot("event:/MOLEGROW");
             }else {
                 StartCoroutine(Slowed());
+                FMODUnity.RuntimeManager.PlayOneShot("event:/MOLEPAIN");
             } 
         }
     }

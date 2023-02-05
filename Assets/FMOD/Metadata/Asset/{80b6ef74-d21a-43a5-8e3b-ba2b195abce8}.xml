@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{80b6ef74-d21a-43a5-8e3b-ba2b195abce8}">
+		<property name="assetPath">
+			<value>MOLEDEATH/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ea2dbae-27bd-4a5c-826b-2351bdeb0bf0}</destination>
+		</relationship>
+	</object>
+</objects>

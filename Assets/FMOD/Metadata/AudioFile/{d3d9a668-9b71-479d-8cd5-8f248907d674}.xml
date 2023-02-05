@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{d3d9a668-9b71-479d-8cd5-8f248907d674}">
+		<property name="assetPath">
+			<value>MOLEDEATH/MOLE_PAIN.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.92000000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ea2dbae-27bd-4a5c-826b-2351bdeb0bf0}</destination>
+		</relationship>
+	</object>
+</objects>

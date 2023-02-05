@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{4eb40de4-7271-4f6b-8248-87c73c476013}">
+	<object class="AudioFile" id="{098e42c4-aa4c-4f0e-a6d9-3a1827ba65b2}">
 		<property name="assetPath">
-			<value>ROCK SMASH/ROCK_SMASH_2.wav</value>
+			<value>ROCK SMASH/ROCK_SMASH_3.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>2.4399999999999999</value>
+			<value>2.7400000000000002</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{3ea2dbae-27bd-4a5c-826b-2351bdeb0bf0}</destination>

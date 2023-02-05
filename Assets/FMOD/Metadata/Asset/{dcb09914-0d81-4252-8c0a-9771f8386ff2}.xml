@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="EncodableAsset" id="{75eb4584-8cb5-4add-8dc9-2cf90920fab3}">
+	<object class="EncodableAsset" id="{dcb09914-0d81-4252-8c0a-9771f8386ff2}">
 		<property name="assetPath">
-			<value>ROCK SMASH/</value>
+			<value>MOLEPAIN/</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{3ea2dbae-27bd-4a5c-826b-2351bdeb0bf0}</destination>

@@ -532,7 +532,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{8164ca43-f24e-4ad0-b34d-5891da8386a0}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-15.5</value>
 		</property>
 		<property name="name">
 			<value>MENU</value>
@@ -692,7 +692,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{b7f86add-278d-41c0-b50d-6bb717396db1}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-15</value>
 		</property>
 		<property name="name">
 			<value>MENU_ADV</value>
@@ -853,7 +853,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{bf8dc453-0971-48fa-862a-847506b18482}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-19.5</value>
 		</property>
 		<property name="name">
 			<value>IN-GAME</value>
@@ -1017,7 +1017,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{44af1def-7680-4ace-be3a-53028ee9f5fc}">
 		<property name="volume">
-			<value>-6</value>
+			<value>-20</value>
 		</property>
 		<property name="name">
 			<value>IN-GAME-ADV</value>
