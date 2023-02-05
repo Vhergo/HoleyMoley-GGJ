@@ -19,6 +19,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float timeSinceLastSpawn;
     private bool spawnEnemy = false;
 
+    [SerializeField] private float obstacleScaleX;
+    [SerializeField] private float obstacleScaleY;
+
     private float leftLimit;
     private float rightLimit;
 
@@ -52,6 +55,14 @@ public class SpawnManager : MonoBehaviour
         ChooseSpawnType();
         CalculateSpawnPosition();
         spawnedObject = Instantiate(obstacleToSpawn, spawnPos, Quaternion.identity);
+        if (spawnEnemy == false) ScaleVariation();
+    }
+
+    void ScaleVariation() {
+        float scalar = Random.Range(obstacleScaleX, obstacleScaleY);
+        float scaleX = spawnedObject.transform.localScale.x * scalar;
+        float scaleY = spawnedObject.transform.localScale.y * scalar;
+        spawnedObject.transform.localScale = new Vector3(scaleX, scaleY, 1);
     }
 
     private bool InSpawnRange() {
@@ -67,9 +78,11 @@ public class SpawnManager : MonoBehaviour
     void ChooseSpawnType() {
         if (Random.value < enemySpawnChance) {
             obstacleToSpawn = enemyObject;
+            spawnEnemy = true;
         }else {
             int spawnIndex = Random.Range(0, obstacles.Length);
             obstacleToSpawn = obstacles[spawnIndex];
+            spawnEnemy = false;
         }
     }
 }

@@ -26,8 +26,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashTime = 0.5f;
     [SerializeField] private float dashCooldown = 2f;
     
-    [SerializeField] private float dashCharge; // max 3? more dashes == further dash
-
+    [SerializeField] private bool empowered = false;
+    [SerializeField] private float empowerDuration;
+    [SerializeField] private float dashChargeLimit;
+    [SerializeField] private float[] dashBonuses;
     // [Header("Misc")]
 
     void Start()
@@ -100,13 +102,21 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy") {
-            print("COLLIDED");
+            empowered = true;
             Destroy(other.gameObject);
         }
     }
-    // void OnCollisionEnter2D(Collision2D other) {
-    //     if (other.gameObject.tag == "Obstacle") {
-    //         print("CRASHED");
-    //     }
-    // }
+    
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Obstacle") {
+            if (empowered) {
+                Invoke("EmpowerOff", empowerDuration);
+                Destroy(other.gameObject);
+            }
+        }
+    }
+
+    void EmpowerOff() {
+        empowered = false;
+    }
 }
