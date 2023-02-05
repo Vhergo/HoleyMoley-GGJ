@@ -27,14 +27,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 2f;
     
     [SerializeField] private bool empowered = false;
-    [SerializeField] private float empowerDuration;
+    [SerializeField] private float empoweredBoost;
     [SerializeField] private float dashChargeLimit;
     [SerializeField] private float[] dashBonuses;
+    private float dashForceSave;
     // [Header("Misc")]
 
     void Start()
     {
-        
+        dashForceSave = dashForce;
     }
 
     void Update() // process input
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private IEnumerator Dash() {
+        print("BOOST: " + EmpoweredBonus());
         canDash = false;
         isDashing = true;
         anim.SetBool("isDashing", isDashing);
@@ -100,9 +102,17 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
     }
 
+    private float EmpoweredBonus() {
+        if (empowered) return empoweredBoost;
+        return 1;
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy") {
-            empowered = true;
+            if (!empowered) {
+                empowered = true;
+                dashForce *= empoweredBoost;
+            }
             Destroy(other.gameObject);
         }
     }
@@ -110,13 +120,14 @@ public class PlayerController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Obstacle") {
             if (empowered) {
-                Invoke("EmpowerOff", empowerDuration);
                 Destroy(other.gameObject);
+                Invoke("EmpowerOff", dashTime);
             }
         }
     }
 
     void EmpowerOff() {
         empowered = false;
+        dashForce = dashForceSave;
     }
 }
