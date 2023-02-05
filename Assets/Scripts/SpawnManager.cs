@@ -16,6 +16,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float initialSpawnDelay = 5f;
     [SerializeField] private float timeSinceLastSpawn;
 
+    [SerializeField] private GameObject roots;
+    [SerializeField] private float spawnDelay;
+
     private float leftLimit;
     private float rightLimit;
 

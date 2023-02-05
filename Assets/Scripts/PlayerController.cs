@@ -91,18 +91,14 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        print("TEST");
-        // if (other.gameObject.tag == "Enemy") {
-        //     print("COLLIDED");
-        //     Destroy(other.gameObject);
-        // }
+        if (other.gameObject.tag == "Enemy") {
+            print("COLLIDED");
+            Destroy(other.gameObject);
+        }
     }
-
-    void OnCollisionEnter2D(Collision2D other) {
-        print("CHECK");
-        // if (other.gameObject.tag == "Obstacle") {
-        //     print("CRASHED");
-        //     Destroy(other.gameObject);
-        // }
-    }
+    // void OnCollisionEnter2D(Collision2D other) {
+    //     if (other.gameObject.tag == "Obstacle") {
+    //         print("CRASHED");
+    //     }
+    // }
 }
