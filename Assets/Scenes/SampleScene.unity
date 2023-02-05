@@ -1264,16 +1264,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 799998914}
   anim: {fileID: 1141529351}
-  moveSpeed: 2
+  moveSpeed: 2.5
   maxSpeed: 5.5
   speedIncrement: 0.1
   rotationSpeed: 10
+  tr: {fileID: 799998918}
   canDash: 1
   isDashing: 0
   dashForce: 5
   dashTime: 0.4
   dashCooldown: 1
-  tr: {fileID: 799998918}
+  dashCharge: 0
 --- !u!96 &799998918
 TrailRenderer:
   serializedVersion: 2
@@ -2408,12 +2409,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacles:
-  - {fileID: 4482250103618967120, guid: 1f588dd55b90d4b4cb598f7ffbb1f087, type: 3}
-  - {fileID: 112950551471127177, guid: 3f22bc3c5ec067f4b8a4acf50e8cfc4f, type: 3}
-  - {fileID: 339490659953692626, guid: 1d0001d8bff57bc4395e219b493bebc9, type: 3}
-  - {fileID: 3541373660415417716, guid: a3b732b601f01c8418e2514637b83682, type: 3}
+  - {fileID: 4500628504582900180, guid: 3f22bc3c5ec067f4b8a4acf50e8cfc4f, type: 3}
+  - {fileID: 1142192736399041504, guid: 1d0001d8bff57bc4395e219b493bebc9, type: 3}
+  - {fileID: 2768094144556039792, guid: a3b732b601f01c8418e2514637b83682, type: 3}
+  - {fileID: 7517007821254012401, guid: 3b5db0697cfc1e043823f8986ec7d2f9, type: 3}
+  - {fileID: 2959829366554166782, guid: 9979f1627007c6d47a503a55c21d4f44, type: 3}
+  - {fileID: 8081981145224325293, guid: f364d4627e0330448bb9a6f9e1e65774, type: 3}
+  - {fileID: 3607610344261917763, guid: 066b5807487a97d4daf6772b2ee7b106, type: 3}
+  enemyObject: {fileID: 4482250103618967120, guid: 1f588dd55b90d4b4cb598f7ffbb1f087, type: 3}
   cam: {fileID: 519420031}
   player: {fileID: 799998916}
+  enemySpawnChance: 0.35
   spawnMargine: 0.1
   spawnVariation: 0
   spawnInterval: 0
@@ -2421,8 +2427,6 @@ MonoBehaviour:
   spawnRange: 5
   initialSpawnDelay: 3
   timeSinceLastSpawn: 0
-  roots: {fileID: 0}
-  spawnDelay: 0
 --- !u!1 &1505136102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,7 +3567,7 @@ GameObject:
   - component: {fileID: 2073593156}
   m_Layer: 0
   m_Name: Roots
-  m_TagString: Untagged
+  m_TagString: Roots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3674,7 +3678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2073593157}
-  rootsSpeed: 1.5
+  rootsSpeed: 2
   maxRootsSpeed: 5
   speedIncrement: 0.1
 --- !u!50 &2073593157
@@ -3697,4 +3701,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

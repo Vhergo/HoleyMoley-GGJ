@@ -26,4 +26,10 @@ public class Roots : MonoBehaviour
         rootsSpeed += speedIncrement * Time.deltaTime;
         rootsSpeed = Mathf.Min(rootsSpeed, maxRootsSpeed);
     }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Obstacle") {
+            Destroy(other.gameObject);
+        }
+    }
 }

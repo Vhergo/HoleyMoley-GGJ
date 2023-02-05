@@ -5,9 +5,11 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] obstacles; //obstacles and enemies
+    [SerializeField] private GameObject enemyObject;
     [SerializeField] private Camera cam;
     [SerializeField] private Transform player;
 
+    [Range(0, 1)] [SerializeField] private float enemySpawnChance;
     [Range(0, 1)] [SerializeField] private float spawnMargine; // percentage of screen with
     [Range(0, 1)] [SerializeField] private float spawnVariation;
     [SerializeField] private float spawnInterval;
@@ -15,9 +17,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float spawnRange;
     [SerializeField] private float initialSpawnDelay = 5f;
     [SerializeField] private float timeSinceLastSpawn;
-
-    [SerializeField] private GameObject roots;
-    [SerializeField] private float spawnDelay;
+    private bool spawnEnemy = false;
 
     private float leftLimit;
     private float rightLimit;
@@ -65,7 +65,11 @@ public class SpawnManager : MonoBehaviour
     }
 
     void ChooseSpawnType() {
-        int spawnIndex = Random.Range(0, obstacles.Length);
-        obstacleToSpawn = obstacles[spawnIndex];
+        if (Random.value < enemySpawnChance) {
+            obstacleToSpawn = enemyObject;
+        }else {
+            int spawnIndex = Random.Range(0, obstacles.Length);
+            obstacleToSpawn = obstacles[spawnIndex];
+        }
     }
 }
