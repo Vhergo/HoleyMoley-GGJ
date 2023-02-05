@@ -1,5 +1,59 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7280937782900523116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ROCKCRUSHING
+  m_EditorClassIdentifier: 
+  Path: event:/ROCKCRUSHING
+  Guid:
+    Data1: -1903685990
+    Data2: 1215360139
+    Data3: 1987419323
+    Data4: -1280168228
+  Banks:
+  - {fileID: -3352726184970221170}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2440
+--- !u!114 &-7231514212600246045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BUGSQUISH
+  m_EditorClassIdentifier: 
+  Path: event:/BUGSQUISH
+  Guid:
+    Data1: 2104546952
+    Data2: 1133857425
+    Data3: 2086106263
+    Data4: 1983148353
+  Banks:
+  - {fileID: -3352726184970221170}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 670
 --- !u!114 &-7221096823980366376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,10 +167,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638111255566158039
+  lastModified: 638111527457969534
   FileSizes:
   - Name: Desktop
-    Value: 1148
+    Value: 1252
   Exists: 1
 --- !u!114 &-3757274492788856908
 MonoBehaviour:
@@ -187,10 +241,10 @@ MonoBehaviour:
   Path: Assets/FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638111255566128118
+  lastModified: 638111527457949575
   FileSizes:
   - Name: Desktop
-    Value: 1400000
+    Value: 1443200
   Exists: 1
 --- !u!114 &-2312474987116518115
 MonoBehaviour:
@@ -237,12 +291,14 @@ MonoBehaviour:
   - {fileID: -3676315517209272435}
   - {fileID: 6678112614487219140}
   - {fileID: -4618419771234756651}
+  - {fileID: -7231514212600246045}
+  - {fileID: -7280937782900523116}
   EditorParameters: []
   MasterBanks:
   - {fileID: -3352726184970221170}
   StringsBanks:
   - {fileID: -3986286250040956688}
-  cacheTime: 638111255566158039
+  cacheTime: 638111527457969534
   cacheVersion: 131601
 --- !u!114 &490752521590234535
 MonoBehaviour:

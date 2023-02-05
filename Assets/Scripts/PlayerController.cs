@@ -110,6 +110,7 @@ public class PlayerController : MonoBehaviour
             //Destroy(other.gameObject);
             other.gameObject.GetComponent<Enemy>().Die();
             pointManager.enemyPointIncrement();
+            FMODUnity.RuntimeManager.PlayOneShot("event:/BUGSQUISH");
         }
     }
 
@@ -117,6 +118,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Obstacle") {
             if (empowered) {
                 Destroy(other.gameObject);
+                FMODUnity.RuntimeManager.PlayOneShot("event:/ROCKCRUSHING");
                 Invoke("EmpowerOff", dashTime);
             }
         }

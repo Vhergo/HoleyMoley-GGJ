@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{7eb13b8a-63d5-4360-9aa7-01c3113454e2}">
+		<property name="assetPath">
+			<value>BUGSQUISH/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ea2dbae-27bd-4a5c-826b-2351bdeb0bf0}</destination>
+		</relationship>
+	</object>
+</objects>
