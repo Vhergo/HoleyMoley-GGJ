@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [Header("General")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Animator anim;
+    [SerializeField] private PointsManager pointManager;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
@@ -100,8 +101,8 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy") {
-            print("COLLIDED");
             Destroy(other.gameObject);
+            pointManager.enemyPointIncrement();
         }
     }
     // void OnCollisionEnter2D(Collision2D other) {
