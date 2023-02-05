@@ -45,6 +45,7 @@ public class Roots : MonoBehaviour
             player.transform.localScale *= 2f;
             mole.sortingOrder = 15;
             anim.SetBool("isDead", player.isDead);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/MOLEDEATH");
 
             player.maxSpeed = 0;
             player.rb.velocity = Vector2.zero;
