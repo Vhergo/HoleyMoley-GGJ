@@ -7,17 +7,22 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] obstacles; //obstacles and enemies
     [SerializeField] private Camera cam;
     [SerializeField] private Transform player;
-    [SerializeField] private float spawnDistance;
+
     [Range(0, 1)] [SerializeField] private float spawnMargine; // percentage of screen with
     [Range(0, 1)] [SerializeField] private float spawnVariation;
+    [SerializeField] private float spawnInterval;
+    [SerializeField] private float spawnDistance;
+    [SerializeField] private float spawnRange;
+    [SerializeField] private float initialSpawnDelay = 5f;
+    [SerializeField] private float timeSinceLastSpawn;
 
     private float leftLimit;
     private float rightLimit;
 
-    private Vector2 obstacleSpawn;
-    private GameObject currentSpawnObject;
-    private GameObject previousSpawnObject;
     private Vector2 spawnPos;
+    private GameObject obstacleToSpawn;
+    private GameObject spawnedObject;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,21 +35,34 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timeSinceLastSpawn += Time.deltaTime;
+        if (timeSinceLastSpawn < initialSpawnDelay) return;
+
+        if (timeSinceLastSpawn >= spawnInterval && InSpawnRange()) {
+            timeSinceLastSpawn = 0;
+            initialSpawnDelay = 0;
+            Spawn();
+        }
     }
 
     void Spawn() {
-        Instantiate(currentSpawnObject, spawnPos, Quaternion.identity);
+        ChooseSpawnType();
+        CalculateSpawnPosition();
+        spawnedObject = Instantiate(obstacleToSpawn, spawnPos, Quaternion.identity);
     }
-    
+
+    private bool InSpawnRange() {
+        if (spawnedObject == null) return true;
+        if ((player.position.y - spawnedObject.transform.position.y) < spawnRange) return true;
+        return false;
+    }
+
     void CalculateSpawnPosition() {
-        Vector2 spawnPos = new Vector2 (Random.Range(leftLimit, rightLimit), player.position.y - spawnDistance);
+        spawnPos = new Vector2 (Random.Range(leftLimit, rightLimit), player.position.y - spawnDistance);
     }
 
     void ChooseSpawnType() {
         int spawnIndex = Random.Range(0, obstacles.Length);
-        previousSpawnObject = currentSpawnObject;
-        currentSpawnObject = obstacles[spawnIndex];
-
+        obstacleToSpawn = obstacles[spawnIndex];
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoleOrientation : MonoBehaviour
+public class AnimationManager : MonoBehaviour
 {
     private Vector2 mousePos;
     [SerializeField] private SpriteRenderer sr;

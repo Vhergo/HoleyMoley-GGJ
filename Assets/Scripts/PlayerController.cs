@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("General")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Animator anim;
 
     [Header("Movement")]
     [SerializeField] private float moveSpeed;
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 2f;
     [SerializeField] private TrailRenderer tr;
 
+    // [Header("Misc")]
+
     void Start()
     {
         
@@ -31,11 +34,10 @@ public class PlayerController : MonoBehaviour
     void Update() // process input
     {
         ProcessInputs();
-        // LookRotation();
     }
 
     void FixedUpdate() { // process physics calculations
-        LookRotation();
+        LookRotation(); // in fixed update to avoid jittering
         Move();
     }
 
@@ -69,10 +71,12 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash() {
         canDash = false;
         isDashing = true;
+        anim.SetBool("isDashing", isDashing);
         
         rb.velocity = new Vector2(moveDirection.x * moveSpeed * dashForce, moveDirection.y * moveSpeed * dashForce);
         yield return new WaitForSeconds(dashTime);
         isDashing = false;
+        anim.SetBool("isDashing", isDashing);
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
@@ -84,5 +88,21 @@ public class PlayerController : MonoBehaviour
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        print("TEST");
+        // if (other.gameObject.tag == "Enemy") {
+        //     print("COLLIDED");
+        //     Destroy(other.gameObject);
+        // }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        print("CHECK");
+        // if (other.gameObject.tag == "Obstacle") {
+        //     print("CRASHED");
+        //     Destroy(other.gameObject);
+        // }
     }
 }

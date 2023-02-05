@@ -1202,12 +1202,14 @@ GameObject:
   m_Component:
   - component: {fileID: 799998916}
   - component: {fileID: 799998914}
+  - component: {fileID: 799998921}
   - component: {fileID: 799998917}
   - component: {fileID: 799998918}
   - component: {fileID: 799998919}
+  - component: {fileID: 799998920}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1262,12 +1264,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 799998914}
+  anim: {fileID: 1141529351}
   moveSpeed: 7
-  rotationSpeed: 5
+  rotationSpeed: 10
   canDash: 1
   isDashing: 0
   dashForce: 5
-  dashTime: 0.2
+  dashTime: 0.4
   dashCooldown: 1
   tr: {fileID: 799998918}
 --- !u!96 &799998918
@@ -1384,6 +1387,74 @@ MonoBehaviour:
   tr: {fileID: 799998918}
   emittingDelay: 0.1
   loopDelay: 0.05
+--- !u!212 &799998920
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799998913}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.5249267, y: 3.9453125}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!58 &799998921
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799998913}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1
 --- !u!1 &854250261
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,7 +1835,7 @@ Animator:
   m_GameObject: {fileID: 1141529349}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9e2ed8b5198f1ac4aa9cd0a3b23804ed, type: 2}
+  m_Controller: {fileID: 9100000, guid: fd9fd3f86496c5545a8bf7a115faaf21, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2394,9 +2465,13 @@ MonoBehaviour:
   - {fileID: 3541373660415417716, guid: a3b732b601f01c8418e2514637b83682, type: 3}
   cam: {fileID: 519420031}
   player: {fileID: 799998916}
-  spawnDistance: 20
   spawnMargine: 0.1
   spawnVariation: 0
+  spawnInterval: 0
+  spawnDistance: 10
+  spawnRange: 5
+  initialSpawnDelay: 3
+  timeSinceLastSpawn: 0
 --- !u!1 &1505136102
 GameObject:
   m_ObjectHideFlags: 0
