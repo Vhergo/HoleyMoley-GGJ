@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{03622d6d-64ea-4f27-936b-be40a0bf9b77}">
+		<property name="assetPath">
+			<value>MOLE FOLEY/MOLE_FOLEY_3.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.92188208616780043</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{3ea2dbae-27bd-4a5c-826b-2351bdeb0bf0}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash) {
             StartCoroutine(Dash());
+            FMODUnity.RuntimeManager.PlayOneShot("event:/MOLE DASH");
             ScreenShakeController.Instance.ShakeCamera(3f, .2f);
         }
 
