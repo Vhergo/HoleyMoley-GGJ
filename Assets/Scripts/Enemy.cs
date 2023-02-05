@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public void Die(float deathDelay = 0) {
+    [SerializeField] private Animator anim;
+
+    public void Die(float deathDelay = 2f) {
+        anim.SetBool("isDead", true);
         Destroy(gameObject, deathDelay);
     }
 }

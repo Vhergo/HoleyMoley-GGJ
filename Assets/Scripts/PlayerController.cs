@@ -27,13 +27,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashTime = 0.5f;
     [SerializeField] private float dashCooldown = 2f;
     
-    [SerializeField] private float dashCharge; // max 3? more dashes == further dash
+    [SerializeField] private float empowereScalar;
+    private bool empowered = false;
+    private float dashForceSave;
 
     // [Header("Misc")]
 
     void Start()
     {
-        
+        dashForceSave = dashForce;
     }
 
     void Update() // process input
@@ -101,13 +103,27 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Enemy") {
-            Destroy(other.gameObject);
+            if (!empowered) {
+                empowered = true;
+                dashForce *= empowereScalar;
+            }
+            //Destroy(other.gameObject);
+            other.gameObject.GetComponent<Enemy>().Die();
             pointManager.enemyPointIncrement();
         }
     }
-    // void OnCollisionEnter2D(Collision2D other) {
-    //     if (other.gameObject.tag == "Obstacle") {
-    //         print("CRASHED");
-    //     }
-    // }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "Obstacle") {
+            if (empowered) {
+                Destroy(other.gameObject);
+                Invoke("EmpowerOff", dashTime);
+            }
+        }
+    }
+
+    void EmpowerOff() {
+        empowered = false;
+        dashForce = dashForceSave;
+    }
 }
