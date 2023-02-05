@@ -11,6 +11,7 @@ public class Roots : MonoBehaviour
 
     [SerializeField] private PlayerController player;
     [SerializeField] private Animator anim;
+    [SerializeField] private SpriteRenderer mole;
 
     [SerializeField] private GameObject tryAgain;
     [SerializeField] private GameObject mainMenu;
@@ -41,15 +42,23 @@ public class Roots : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             maxRootsSpeed = 0;
             player.isDead = true;
+            player.transform.localScale *= 2f;
+            mole.sortingOrder = 15;
+            anim.SetBool("isDead", player.isDead);
+
             player.maxSpeed = 0;
             player.rb.velocity = Vector2.zero;
-            anim.enabled = false;
+            // anim.enabled = false;
 
-            tryAgain.SetActive(true);
-            mainMenu.SetActive(true);
+            Invoke("spawnUI", 2f);
             // Destroy(other.gameObject);
             // replace with animation
             // add lose screen
         }
+    }
+
+    void spawnUI() {
+        tryAgain.SetActive(true);
+        mainMenu.SetActive(true);
     }
 }
