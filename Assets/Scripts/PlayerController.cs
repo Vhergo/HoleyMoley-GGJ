@@ -41,6 +41,10 @@ public class PlayerController : MonoBehaviour
     private float dashForceSave;
     private Vector3 originalScale;
 
+    [Header("Death")]
+    [SerializeField] public float deathAnimScale;
+    [SerializeField] public int orderInLayer;
+
     void Start()
     {
         dashForceSave = dashForce;
