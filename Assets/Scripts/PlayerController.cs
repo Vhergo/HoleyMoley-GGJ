@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] private Animator anim;
     [SerializeField] private PointsManager pointManager;
+    [SerializeField] private GameObject canDashIndicator;
 
     [Header("Movement")]
     [SerializeField] public float moveSpeed;
@@ -102,6 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dash() {
         canDash = false;
+        canDashIndicator.SetActive(false);
         isDashing = true;
         anim.SetBool("isDashing", isDashing);
 
@@ -120,6 +122,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isDashing", isDashing);
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
+        canDashIndicator.SetActive(true);
     }
 
     void LookRotation() {
